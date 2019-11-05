@@ -34,6 +34,8 @@ public class GetWeightedPmfFromDoublesSketchUDF extends UDF {
    * @return list of fractions from 0 to 1
    */
   public List<Double> evaluate(final BytesWritable serializedSketch, final Double... splitPoints) {
+    System.out.println("ffff");
+    System.out.println("ffff");
     if (serializedSketch == null) { return null; }
     final DoublesSketch sketch = DoublesSketch.wrap(Memory.wrap(serializedSketch.getBytes()));
     final double[] pmf = sketch.getPMF(Util.objectsToPrimitives(splitPoints));
